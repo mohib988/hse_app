@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hse_app/pages/form/requestor_info/safety_checks/questions/questions.dart';
 
 class SafetyCheckModel {
   Map<String, String> answers = {};
@@ -13,19 +14,7 @@ class SafetyCheckForm extends StatefulWidget {
 class _SafetyCheckFormState extends State<SafetyCheckForm> {
   final _formKey = GlobalKey<FormState>();
   final _model = SafetyCheckModel();
-
-  final List<String> questions = [
-    'Are fire extinguishers available and in working order?',
-    'Are combustible liquids stored in approved containers and away from ignition sources?',
-    'Are gas cylinders secured and stored upright?',
-    'Are electrical cords and equipment in good condition and free of damage?',
-    'Are flammable materials kept to a minimum and disposed of properly?',
-    'Are hazardous substances labeled and stored correctly?',
-    'Are spill kits and first aid kits available and accessible?',
-    'Are emergency exits and routes clear of obstructions?',
-    'Are workers trained and competent to perform the task safely?',
-    'Have workers been informed of the potential hazards and risks involved in the task?',
-  ];
+  final List<String> questions = questionsList;
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +91,7 @@ class _SafetyCheckFormState extends State<SafetyCheckForm> {
         Text(question),
         Row(
           children: [
-            ...['Does not apply', 'Yes', 'No'].map((choice) {
+            ...['Yes', 'No'].map((choice) {
               return Row(
                 children: [
                   Radio(
@@ -111,6 +100,7 @@ class _SafetyCheckFormState extends State<SafetyCheckForm> {
                     onChanged: (val) {
                       setState(() {
                         _model.answers[question] = val!;
+                        print(val);
                       });
                     },
                   ),
