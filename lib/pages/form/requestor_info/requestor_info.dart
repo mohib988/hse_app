@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 import '../../../globalFunction/date_function.dart';
@@ -95,10 +97,6 @@ class _WorkPermitFormState extends State<WorkPermitForm> {
                   _model.areaOfWork = value!;
                 },
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: Text('Select one:'),
-              ),
               Row(
                 children: [
                   Text('New Project'),
@@ -183,44 +181,50 @@ class _WorkPermitFormState extends State<WorkPermitForm> {
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text('Tools and Equipment:'),
               ),
-              CheckboxListTile(
-                title: Text('Screwdriver'),
-                value: _model.toolsAndEquipment.contains('Screwdriver'),
-                onChanged: (value) {
-                  setState(() {
-                    if (value!) {
-                      _model.toolsAndEquipment.add('Screwdriver');
-                    } else {
-                      _model.toolsAndEquipment.remove('Screwdriver');
-                    }
-                  });
-                },
-              ),
-              CheckboxListTile(
-                title: Text('Pliers'),
-                value: _model.toolsAndEquipment.contains('Pliers'),
-                onChanged: (value) {
-                  setState(() {
-                    if (value!) {
-                      _model.toolsAndEquipment.add('Pliers');
-                    } else {
-                      _model.toolsAndEquipment.remove('Pliers');
-                    }
-                  });
-                },
-              ),
-              CheckboxListTile(
-                title: Text('Multimeter'),
-                value: _model.toolsAndEquipment.contains('Multimeter'),
-                onChanged: (value) {
-                  setState(() {
-                    if (value!) {
-                      _model.toolsAndEquipment.add('Multimeter');
-                    } else {
-                      _model.toolsAndEquipment.remove('Multimeter');
-                    }
-                  });
-                },
+              Flex(
+                direction: Axis.horizontal,
+                children: [
+                  Checkbox(
+                    // title: Text('Screwdriver'),
+                    value: _model.toolsAndEquipment.contains('Screwdriver'),
+                    onChanged: (value) {
+                      setState(() {
+                        if (value!) {
+                          _model.toolsAndEquipment.add('Screwdriver');
+                        } else {
+                          _model.toolsAndEquipment.remove('Screwdriver');
+                        }
+                      });
+                    },
+                  ),
+                  Text("Screwdriver"),
+                  Checkbox(
+                    value: _model.toolsAndEquipment.contains('Pliers'),
+                    onChanged: (value) {
+                      setState(() {
+                        if (value!) {
+                          _model.toolsAndEquipment.add('Pliers');
+                        } else {
+                          _model.toolsAndEquipment.remove('Pliers');
+                        }
+                      });
+                    },
+                  ),
+                  Text("Pliers"),
+                  Checkbox(
+                    value: _model.toolsAndEquipment.contains('Multimeter'),
+                    onChanged: (value) {
+                      setState(() {
+                        if (value!) {
+                          _model.toolsAndEquipment.add('Multimeter');
+                        } else {
+                          _model.toolsAndEquipment.remove('Multimeter');
+                        }
+                      });
+                    },
+                  ),
+                  Text("Multimeter"),
+                ],
               ),
               Row(
                 children: [
@@ -242,6 +246,22 @@ class _WorkPermitFormState extends State<WorkPermitForm> {
                     child: Icon(Icons.calendar_month),
                   )
                 ],
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  FilePickerResult? result =
+                      await FilePicker.platform.pickFiles(
+                    type: FileType.custom,
+                    allowedExtensions: ['jpg', 'pdf', 'doc', "png"],
+                  );
+
+                  if (result != null) {
+                    print(result);
+                  } else {
+                    // User canceled the picker
+                  }
+                },
+                child: Icon(Icons.file_copy),
               ),
               SizedBox(height: 20),
               ElevatedButton(
