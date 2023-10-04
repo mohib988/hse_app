@@ -7,6 +7,8 @@ import 'package:hse_app/data/permitItems.dart';
 import 'package:hse_app/pages/homepage/home_Page.dart';
 import 'package:hse_app/pages/mainPage/main_page.dart';
 
+import 'pages/form/requestor_info/requestor_info.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
         cupertino: (_, __) => CupertinoAppData(
               theme: MyTheme.iosThemeData,
             ),
-        home: MainPage(),
+        home: RequestorInformation(),
         routes: {
           "/home": (context) => HomePage(),
         });
