@@ -4,6 +4,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:hse_app/appTheme/apptheme.dart';
 import 'package:hse_app/data/permitItems.dart';
+import 'package:hse_app/pages/form/requestor_info/safety_checks/safety_check.dart';
 import 'package:hse_app/pages/homepage/home_Page.dart';
 import 'package:hse_app/pages/mainPage/main_page.dart';
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         cupertino: (_, __) => CupertinoAppData(
               theme: MyTheme.iosThemeData,
             ),
-        home: RequestorInformation(),
+        home: SafetyCheckForm(),
         routes: {
           "/home": (context) => HomePage(),
         });
