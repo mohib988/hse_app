@@ -10,3 +10,6 @@ final List<PermitItem> permitItems = [
 final List<PermitItem> permitItems_report = [
   PermitItem(icon: Icons.report, label: 'Report The Hazard'),
 ];
+final List<PermitItem> permitItems_monitor = [
+  PermitItem(icon: Icons.monitor, label: 'Monitor The Hazard'),
+];

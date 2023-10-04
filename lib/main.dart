@@ -8,6 +8,7 @@ import 'package:hse_app/pages/form/requestor_info/safety_checks/safety_check.dar
 import 'package:hse_app/pages/homepage/home_Page.dart';
 import 'package:hse_app/pages/mainPage/main_page.dart';
 
+import 'pages/form/requestor_info/equiment_info/equipment_info.dart';
 import 'pages/form/requestor_info/requestor_info.dart';
 
 void main() {
@@ -33,9 +34,11 @@ class MyApp extends StatelessWidget {
         cupertino: (_, __) => CupertinoAppData(
               theme: MyTheme.iosThemeData,
             ),
-        home: SafetyCheckForm(),
+        home: SafetyMeasuresForm(),
         routes: {
           "/home": (context) => HomePage(),
+          "/requestor": (context) => RequestorInformation(),
+          "/SafetyCheckForm": (context) => SafetyCheckForm(),
         });
   }
 }

@@ -14,17 +14,20 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int index = 2;
+  int index = 0;
   final screens = [
     HomePage(
       heading: 'Choose the Work Permit',
       permitItems: permitItems.toList(),
     ),
     HomePage(
-      heading: 'Choose the Work Permit',
+      heading: 'Inform The Hazard',
       permitItems: permitItems_report.toList(),
     ),
-    HomePage(),
+    HomePage(
+      heading: 'Monitor The Hazard',
+      permitItems: permitItems_monitor.toList(),
+    ),
     HomePage(),
     // QRCodeScanner(),
     // HomePage(),

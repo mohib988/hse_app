@@ -9,7 +9,7 @@ class MyTheme {
           backgroundColor: Colors.cyan.shade700,
           shadowColor: Color.fromARGB(155, 0, 0, 0)),
       buttonTheme: ButtonThemeData(
-        buttonColor: Color.fromARGB(148, 3, 168, 244).withOpacity(0.3),
+        buttonColor: Color.fromARGB(147, 7, 234, 79).withOpacity(0.3),
         textTheme: ButtonTextTheme.primary,
       ),
       inputDecorationTheme: const InputDecorationTheme(
@@ -22,7 +22,7 @@ class MyTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black, foregroundColor: Colors.white)));
+              backgroundColor: Colors.green, foregroundColor: Colors.white)));
 
   static CupertinoThemeData iosThemeData = const CupertinoThemeData(
     scaffoldBackgroundColor: Colors.white,
