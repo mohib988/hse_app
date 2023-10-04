@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class MyTheme {
   static ThemeData appThemeData = ThemeData(
       fontFamily: 'Nunito',
-      scaffoldBackgroundColor: Colors.cyan[100],
+      scaffoldBackgroundColor: Color.fromRGBO(14, 150, 157, 1),
       appBarTheme: AppBarTheme(
           backgroundColor: Colors.cyan.shade700,
           shadowColor: Color.fromARGB(155, 0, 0, 0)),
